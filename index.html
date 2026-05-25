@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ビックフライ有限会社 | IT・ドローン・経営コンサルタント</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #fafafa;
+      --surface:   #f3f0fa;
+      --border:    rgba(109,40,217,0.12);
+      --accent:    #7c3aed;
+      --accent2:   #a855f7;
+      --text:      #1e1b2e;
+      --muted:     #6b7280;
+      --grad:      linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Noto Sans JP', 'Inter', sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2.5rem;
+      background: rgba(250,250,250,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      background: var(--grad);
+      color: #fff !important;
+      padding: 0.5rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* 背景グリッド */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(124,58,237,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(124,58,237,0.07) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* 背景グロー */
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 400px;
+      background: radial-gradient(ellipse at center, rgba(168,85,247,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 span {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-sub {
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 1.1rem;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-primary {
+      background: var(--grad);
+      color: #fff;
+      padding: 0.85rem 2.2rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
+
+    .btn-outline {
+      border: 1px solid rgba(59,130,246,0.5);
+      color: var(--accent);
+      padding: 0.85rem 2.2rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: rgba(59,130,246,0.1);
+      transform: translateY(-2px);
+    }
+
+    /* 実績バッジ */
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 4rem;
+      position: relative;
+      z-index: 1;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .stat-item { text-align: center; }
+
+    .stat-num {
+      font-size: 2.2rem;
+      font-weight: 900;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── SECTION COMMON ─── */
+    section { padding: 6rem 2rem; }
+
+    .section-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+    }
+
+    .section-title span {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      max-width: 600px;
+      margin-bottom: 3rem;
+      font-size: 1rem;
+    }
+
+    /* ─── SERVICES ─── */
+    #services { background: var(--surface); }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--grad);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      transform-origin: left;
+    }
+
+    .service-card:hover {
+      border-color: rgba(124,58,237,0.35);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(124,58,237,0.1);
+    }
+
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(124,58,237,0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .service-tag {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.72rem;
+      color: var(--accent);
+      border: 1px solid rgba(124,58,237,0.3);
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── ACHIEVEMENT ─── */
+    #achievement {
+      background: linear-gradient(135deg, #ede9f8 0%, #f3f0fa 100%);
+    }
+
+    .achievement-box {
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 3rem;
+      background: rgba(255,255,255,0.7);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .achievement-box h3 {
+      font-size: 1.6rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+
+    .achievement-box p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(124,58,237,0.08);
+      border: 1px solid rgba(124,58,237,0.25);
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+    }
+
+    .achievement-nums {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .anum-box {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .anum-box .num {
+      font-size: 2.4rem;
+      font-weight: 900;
+      font-family: 'Inter', sans-serif;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .anum-box .unit { font-size: 1rem; }
+    .anum-box .label { font-size: 0.78rem; color: var(--muted); margin-top: 0.3rem; }
+
+    /* ─── ABOUT ─── */
+    #about { background: var(--surface); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-text h3 {
+      font-size: 1.5rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .about-info {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+
+    .info-row {
+      display: flex;
+      gap: 1.5rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    .info-row:last-child { border-bottom: none; }
+
+    .info-label {
+      color: var(--muted);
+      min-width: 100px;
+      font-size: 0.82rem;
+    }
+
+    .info-value { color: var(--text); }
+
+    /* ─── CTA ─── */
+    #contact {
+      background: var(--bg);
+      text-align: center;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(168,85,247,0.05));
+      border: 1px solid rgba(124,58,237,0.2);
+      border-radius: 24px;
+      padding: 5rem 3rem;
+      max-width: 720px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 300px;
+      background: radial-gradient(ellipse, rgba(124,58,237,0.12) 0%, transparent 70%);
+    }
+
+    .cta-box h2 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 900;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .cta-box p {
+      color: var(--muted);
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #1e1b2e;
+      border-top: 1px solid rgba(124,58,237,0.2);
+      padding: 3rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .footer-brand .logo { font-size: 1.1rem; }
+
+    .footer-brand p {
+      color: #9ca3af;
+      font-size: 0.82rem;
+      margin-top: 0.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-col h4 {
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #9ca3af;
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-col ul { list-style: none; }
+
+    .footer-col li { margin-bottom: 0.5rem; }
+
+    .footer-col a {
+      color: #9ca3af;
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: #fff; }
+
+    .footer-bottom {
+      max-width: 1080px;
+      margin: 2rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-bottom p { color: #9ca3af; font-size: 0.8rem; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.2rem; }
+      .nav-links { display: none; }
+
+      .achievement-box,
+      .about-grid { grid-template-columns: 1fr; }
+
+      .achievement-nums { grid-template-columns: 1fr 1fr; }
+
+      .footer-inner { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ナビゲーション -->
+  <nav>
+    <div class="logo">BICFLY</div>
+    <ul class="nav-links">
+      <li><a href="#services">サービス</a></li>
+      <li><a href="#achievement">実績</a></li>
+      <li><a href="#about">会社概要</a></li>
+      <li><a href="#contact">お問い合わせ</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">お問い合わせ</a>
+  </nav>
+
+  <!-- ヒーロー -->
+  <section class="hero">
+    <p class="hero-eyebrow">IT × Drone × Consulting — Fukushima</p>
+    <h1>
+      テクノロジーで、<br />
+      地域の未来を<span>切り拓く。</span>
+    </h1>
+    <p class="hero-sub">
+      IT・動画制作、産業用ドローン、経営コンサルティング。<br />
+      福島から、あなたのビジネスの可能性を広げます。
+    </p>
+    <div class="hero-buttons">
+      <a href="#services" class="btn-primary">サービスを見る</a>
+      <a href="#contact" class="btn-outline">お問い合わせ</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">293<span style="font-size:1.2rem;">ha</span></div>
+        <div class="stat-label">2025年 ドローン散布実績</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">1991</div>
+        <div class="stat-label">創業年</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3<span style="font-size:1.2rem;">部門</span></div>
+        <div class="stat-label">専門サービス</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- サービス -->
+  <section id="services">
+    <div class="section-inner">
+      <p class="section-eyebrow">Our Services</p>
+      <h2 class="section-title">私たちが提供する<br /><span>3つのサービス</span></h2>
+      <p class="section-desc">IT・ドローン・経営コンサルの専門知識を組み合わせ、あなたのビジネスを多角的にサポートします。</p>
+      <div class="service-grid">
+
+        <div class="service-card">
+          <div class="service-icon">💻</div>
+          <h3>IT・動画制作</h3>
+          <p>Webサイト制作・コンテンツ制作・動画プロモーションなど、デジタル領域での発信を全面サポート。経営革新計画承認のアプリ開発実績あり。</p>
+          <span class="service-tag">主力事業</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🚁</div>
+          <h3>産業用ドローン</h3>
+          <p>農薬・肥料・種の空中散布から空撮まで対応。DJI Agras T10を使用した精密農業で農作業の効率化を実現。福島県ドローンプラットフォーム登録事業者。</p>
+          <span class="service-tag">拡大中</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">📊</div>
+          <h3>経営コンサルティング</h3>
+          <p>補助金申請・融資サポートを軸とした経営コンサルティング。IT導入・ドローン導入とのクロスセル支援も強み。</p>
+          <span class="service-tag">主力事業</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 実績 -->
+  <section id="achievement">
+    <div class="section-inner">
+      <p class="section-eyebrow">Achievement</p>
+      <h2 class="section-title">実績・<span>認定</span></h2>
+      <div class="achievement-box">
+        <div>
+          <h3>福島県知事より<br />経営革新計画の承認取得</h3>
+          <p>弊社開発のアプリが2025年6月、福島県知事より経営革新計画の承認を受けました。地域の農業・産業のDX推進に取り組んでいます。</p>
+          <span class="badge">✓ 経営革新計画 承認事業者</span>
+        </div>
+        <div class="achievement-nums">
+          <div class="anum-box">
+            <div class="num">293<span class="unit" style="font-size:1rem;"> ha</span></div>
+            <div class="label">2025年 散布実績</div>
+          </div>
+          <div class="anum-box">
+            <div class="num">30<span class="unit" style="font-size:1rem;">+</span></div>
+            <div class="label">年の事業経験</div>
+          </div>
+          <div class="anum-box">
+            <div class="num">2</div>
+            <div class="label">保有ドローン機体</div>
+          </div>
+          <div class="anum-box">
+            <div class="num">4</div>
+            <div class="label">事業領域</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 会社概要 -->
+  <section id="about">
+    <div class="section-inner">
+      <p class="section-eyebrow">About Us</p>
+      <h2 class="section-title">会社<span>概要</span></h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <h3>「ドローンで新たな挑戦をしよう」</h3>
+          <p>ビックフライ有限会社は1991年創業。縫製加工業からスタートし、IT・動画制作、産業用ドローン、経営コンサルティングへと事業を進化させてきました。</p>
+          <p>福島県須賀川市を拠点に、地域企業・農家のデジタル化・業務効率化を支援しています。</p>
+          <a href="#contact" class="btn-primary" style="display:inline-block; margin-top:1rem;">お問い合わせはこちら</a>
+        </div>
+        <div class="about-info">
+          <div class="info-row">
+            <span class="info-label">会社名</span>
+            <span class="info-value">ビックフライ有限会社</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">代表取締役</span>
+            <span class="info-value">深谷 学</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">設立</span>
+            <span class="info-value">1991年12月27日</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">資本金</span>
+            <span class="info-value">300万円</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">所在地</span>
+            <span class="info-value">福島県須賀川市保土原字中屋敷5-3</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">従業員数</span>
+            <span class="info-value">2名</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">事業内容</span>
+            <span class="info-value">IT・動画制作 / 産業用ドローン / 経営コンサルティング</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contact">
+    <div class="section-inner">
+      <div class="cta-box">
+        <h2>お気軽にご相談ください</h2>
+        <p>IT活用・ドローン導入・補助金申請など、まずはお問い合わせから。</p>
+        <a href="mailto:contact@bicfly.co.jp" class="btn-primary">お問い合わせフォームへ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo">BICFLY</div>
+        <p>ビックフライ有限会社</p>
+        <p style="margin-top:0.3rem;">福島県須賀川市</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#">IT・動画制作</a></li>
+            <li><a href="#">産業用ドローン</a></li>
+            <li><a href="#">経営コンサルティング</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">会社概要</a></li>
+            <li><a href="#">実績・事例</a></li>
+            <li><a href="#">お問い合わせ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>SNS</h4>
+          <ul>
+            <li><a href="https://www.instagram.com/manabu_menstagram/" target="_blank">Instagram</a></li>
+            <li><a href="https://lin.ee/hYCbYcy" target="_blank">LINE公式</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 ビックフライ有限会社 All Rights Reserved.</p>
+      <p style="color:var(--muted); font-size:0.75rem;">福島県ドローンプラットフォーム 登録事業者</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<style>
+/* SWELLのh1〜h4スタイルをリセット */
+.bf-section h1,
+.bf-section h2,
+.bf-section h3,
+.bf-section h4 {
+  background: transparent !important;
+  background-image: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-left: none !important;
+  border-bottom: none !important;
+  padding: 0 !important;
+  margin-top: 0 !important;
+  color: inherit !important;
+  display: block !important;
+}
+
+.bf-section { padding: 4rem calc(50vw - 50% + 1.5rem); margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); }
+.bf-section-inner { max-width: 1000px; margin: 0 auto; }
+.bf-eyebrow { font-size: 0.78rem; letter-spacing: 0.25em; text-transform: uppercase; color: #a855f7; margin-bottom: 0.6rem; }
+.bf-title { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 900; line-height: 1.25; margin-bottom: 1rem; }
+.bf-title span { background: linear-gradient(135deg, #7c3aed, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.bf-lead { color: #6b7280; font-size: 1rem; max-width: 640px; margin-bottom: 3rem; line-height: 1.8; }
+
+/* サービスカード */
+.bf-service-block { display: grid; gap: 3rem; margin-bottom: 2rem; }
+.bf-service-item { background: #fff; border: 1px solid rgba(109,40,217,0.12); border-radius: 20px; padding: 2.5rem; display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: start; }
+.bf-service-icon { width: 64px; height: 64px; background: rgba(124,58,237,0.1); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem; flex-shrink: 0; }
+.bf-service-tag { display: inline-block; font-size: 0.72rem; color: #7c3aed; border: 1px solid rgba(124,58,237,0.3); padding: 0.2rem 0.8rem; border-radius: 999px; margin-bottom: 0.6rem; }
+.bf-service-name { font-size: 1.4rem; font-weight: 900; margin-bottom: 0.8rem; }
+.bf-service-desc { color: #6b7280; font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.2rem; }
+.bf-list { list-style: none; padding: 0; margin: 0; }
+.bf-list li { padding: 0.4rem 0; font-size: 0.9rem; color: #374151; display: flex; align-items: center; gap: 0.5rem; }
+.bf-list li::before { content: '✓'; color: #7c3aed; font-weight: 700; flex-shrink: 0; }
+
+/* CTA */
+.bf-cta { background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(168,85,247,0.05)); border: 1px solid rgba(124,58,237,0.2); border-radius: 20px; padding: 3rem; text-align: center; margin-top: 4rem; }
+.bf-cta h2 { font-size: 1.6rem; font-weight: 900; margin-bottom: 0.8rem; }
+.bf-cta p { color: #6b7280; margin-bottom: 1.5rem; }
+.bf-btn { display: inline-block; background: linear-gradient(135deg, #7c3aed, #a855f7); color: #fff !important; padding: 0.85rem 2.4rem; border-radius: 999px; font-weight: 700; font-size: 1rem; text-decoration: none !important; }
+
+@media (max-width: 640px) {
+  .bf-service-item { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="bf-section">
+  <div class="bf-section-inner">
+    <p class="bf-eyebrow">Our Services</p>
+    <div class="bf-title">ビックフライの<br><span>3つのサービス</span></div>
+    <p class="bf-lead">IT・ドローン・経営コンサルの専門知識を組み合わせ、地域の中小企業・農家の皆様のビジネスを多角的にサポートします。</p>
+
+    <div class="bf-service-block">
+
+      <!-- IT・動画制作 -->
+      <div class="bf-service-item" id="it">
+        <div class="bf-service-icon">💻</div>
+        <div>
+          <span class="bf-service-tag">主力事業</span>
+          <div class="bf-service-name">IT・動画制作</div>
+          <p class="bf-service-desc">
+            ホームページ制作から動画プロモーションまで、デジタル領域での情報発信を全面的にサポートします。
+            地域の中小企業様が本業に集中できるよう、制作から運用までワンストップで対応します。
+          </p>
+          <ul class="bf-list">
+            <li>コーポレートサイト・ホームページ制作</li>
+            <li>LP（ランディングページ）制作</li>
+            <li>プロモーション動画・紹介動画制作</li>
+            <li>SNSコンテンツ制作・運用サポート</li>
+            <li>IT導入補助金を活用した制作支援</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 産業用ドローン -->
+      <div class="bf-service-item" id="drone">
+        <div class="bf-service-icon">🚁</div>
+        <div>
+          <span class="bf-service-tag">拡大中</span>
+          <div class="bf-service-name">産業用ドローン</div>
+          <p class="bf-service-desc">
+            DJI Agras T10を使用した農薬・肥料・種の空中散布サービスを提供しています。
+            2025年の散布実績は293haにのぼり、福島県ドローンプラットフォーム登録事業者として
+            地域農業のDX推進に取り組んでいます。
+          </p>
+          <ul class="bf-list">
+            <li>農薬・除草剤の空中散布</li>
+            <li>肥料・種の空中散布</li>
+            <li>農地の空撮・測量</li>
+            <li>圃場管理・散布記録のデジタル化支援</li>
+            <li>福島県ドローンプラットフォーム登録事業者</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 経営コンサルティング -->
+      <div class="bf-service-item" id="consulting">
+        <div class="bf-service-icon">📊</div>
+        <div>
+          <span class="bf-service-tag">主力事業</span>
+          <div class="bf-service-name">経営コンサルティング</div>
+          <p class="bf-service-desc">
+            補助金申請・融資サポートを軸とした経営コンサルティングを提供しています。
+            自社でIT・ドローン導入を実践してきた経験を活かし、実情に即したアドバイスが強みです。
+            2025年6月には自社開発アプリで福島県知事より経営革新計画の承認を取得しました。
+          </p>
+          <ul class="bf-list">
+            <li>補助金申請サポート（IT導入・ものづくり・事業再構築等）</li>
+            <li>融資・資金調達サポート</li>
+            <li>経営革新計画の策定支援</li>
+            <li>IT・ドローン導入のコンサルティング</li>
+            <li>業務効率化・DX推進支援</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="bf-cta">
+      <div class="bf-sub-title">まずはお気軽にご相談ください</div>
+      <p>どのサービスがお役に立てるか、無料でご相談を承ります。</p>
+      <a href="/contact/" class="bf-btn">お問い合わせはこちら</a>
+    </div>
+
+  </div>
+</div>

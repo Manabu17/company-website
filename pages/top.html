@@ -1,0 +1,210 @@
+<style>
+/* ─── SWELLのh1〜h4スタイルをリセット ─── */
+.bf-hero h1,
+.bf-section h2,
+.bf-section h3,
+.bf-section h4 {
+  background: transparent !important;
+  background-image: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-left: none !important;
+  border-bottom: none !important;
+  border-top: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin-top: 0 !important;
+  color: inherit !important;
+  display: block !important;
+}
+.bf-hero h1::before, .bf-hero h1::after,
+.bf-section h2::before, .bf-section h2::after,
+.bf-section h3::before, .bf-section h3::after {
+  display: none !important;
+  content: none !important;
+  border: none !important;
+}
+
+/* ─── リセット・ベース ─── */
+.bf-wrap * { box-sizing: border-box; }
+
+/* ─── フル幅突き破り（SWELLコンテンツ幅対策）─── */
+.bf-hero,
+.bf-section {
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+/* ─── ヒーロー ─── */
+.bf-hero { padding: 6rem calc(50vw - 50% + 1.5rem) 5rem; text-align: center; position: relative; overflow: hidden; background: #fafafa; }
+.bf-hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(124,58,237,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(124,58,237,0.07) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
+.bf-hero::after { content: ''; position: absolute; top: 20%; left: 50%; transform: translateX(-50%); width: 800px; height: 400px; background: radial-gradient(ellipse at center, rgba(168,85,247,0.15) 0%, transparent 70%); pointer-events: none; }
+.bf-hero-inner { max-width: 800px; margin: 0 auto !important; position: relative; z-index: 1; text-align: center !important; }
+.bf-eyebrow-sm { font-size: 0.78rem; letter-spacing: 0.25em; text-transform: uppercase; color: #a855f7; margin-bottom: 1.5rem; text-align: center !important; }
+.bf-h1 { font-size: clamp(2.2rem, 6vw, 4.5rem) !important; font-weight: 900 !important; line-height: 1.2 !important; letter-spacing: -0.02em; margin-bottom: 1.5rem !important; color: #1e1b2e !important; text-align: center !important; }
+.bf-h1 span { background: linear-gradient(135deg, #7c3aed, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.bf-hero-sub { color: #6b7280; font-size: 1.1rem; line-height: 1.8; margin-bottom: 2.5rem; text-align: center !important; }
+.bf-btns { display: flex !important; gap: 1rem; justify-content: center !important; flex-wrap: wrap; margin-bottom: 4rem; }
+.bf-btn-primary { background: linear-gradient(135deg, #7c3aed, #a855f7) !important; color: #fff !important; padding: 0.85rem 2.2rem; border-radius: 999px !important; font-weight: 700; font-size: 1rem; text-decoration: none !important; display: inline-block !important; }
+.bf-btn-outline { border: 1.5px solid rgba(124,58,237,0.5) !important; color: #7c3aed !important; padding: 0.85rem 2.2rem; border-radius: 999px !important; font-weight: 700; font-size: 1rem; text-decoration: none !important; display: inline-block !important; }
+
+/* 実績数字 */
+.bf-stats { text-align: center !important; display: block !important; }
+.bf-stat { display: inline-block !important; margin: 0 2rem 1rem !important; text-align: center !important; vertical-align: top; }
+.bf-stat-num { font-size: 2.2rem; font-weight: 900; background: linear-gradient(135deg, #7c3aed, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-family: 'Inter', sans-serif; }
+.bf-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.2rem; }
+
+/* ─── セクション共通 ─── */
+.bf-section { padding: 5rem calc(50vw - 50% + 1.5rem); }
+.bf-section-inner { max-width: 1080px; margin: 0 auto; }
+.bf-eyebrow { font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: #a855f7; margin-bottom: 0.6rem; }
+.bf-section-title { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 900; line-height: 1.25; margin-bottom: 0.8rem; }
+.bf-section-title span { background: linear-gradient(135deg, #7c3aed, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.bf-section-desc { color: #6b7280; max-width: 600px; margin-bottom: 3rem; font-size: 1rem; line-height: 1.8; }
+
+/* ─── サービス ─── */
+.bf-services { background: #f3f0fa; }
+.bf-service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+.bf-service-card { background: #fff; border: 1px solid rgba(109,40,217,0.12); border-radius: 16px; padding: 2rem; position: relative; overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; }
+.bf-service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(124,58,237,0.1); }
+.bf-service-icon { width: 52px; height: 52px; background: linear-gradient(135deg, #7c3aed, #a855f7); border-radius: 12px; display: flex !important; align-items: center !important; justify-content: center !important; margin-bottom: 1.2rem; color: #fff; font-weight: 900; font-size: 0.8rem; letter-spacing: 0.05em; }
+.bf-service-name { font-size: 1.15rem !important; font-weight: 700 !important; margin-bottom: 0.6rem !important; color: #1e1b2e !important; }
+.bf-service-card p { font-size: 0.9rem; color: #6b7280; line-height: 1.7; margin-bottom: 1rem; }
+.bf-service-tag { font-size: 0.72rem; color: #7c3aed; border: 1px solid rgba(124,58,237,0.3); padding: 0.2rem 0.7rem; border-radius: 999px; display: inline-block; }
+.bf-service-more { display: inline-block; margin-top: 0.8rem; font-size: 0.85rem; color: #7c3aed !important; text-decoration: none !important; font-weight: 700; }
+
+/* ─── 実績 ─── */
+.bf-achievement { background: linear-gradient(135deg, #ede9f8, #f3f0fa); }
+.bf-ach-box { border: 1px solid rgba(109,40,217,0.12); border-radius: 20px; padding: 3rem; background: rgba(255,255,255,0.7); display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+.bf-ach-title { font-size: 1.5rem !important; font-weight: 900 !important; margin-bottom: 0.8rem !important; line-height: 1.4 !important; color: #1e1b2e !important; }
+.bf-ach-box p { color: #6b7280; font-size: 0.95rem; margin-bottom: 1.2rem; line-height: 1.8; }
+.bf-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(124,58,237,0.08); border: 1px solid rgba(124,58,237,0.25); color: #7c3aed; font-size: 0.82rem; font-weight: 700; padding: 0.4rem 1rem; border-radius: 999px; }
+.bf-nums { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.bf-num-box { background: #fff; border: 1px solid rgba(109,40,217,0.12); border-radius: 14px; padding: 1.5rem; text-align: center; }
+.bf-num { font-size: 2.2rem; font-weight: 900; background: linear-gradient(135deg, #7c3aed, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-family: 'Inter', sans-serif; }
+.bf-num-label { font-size: 0.75rem; color: #6b7280; margin-top: 0.3rem; }
+
+/* ─── CTA ─── */
+.bf-cta-section { background: #fafafa; text-align: center; }
+.bf-cta-box { background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(168,85,247,0.05)); border: 1px solid rgba(124,58,237,0.2); border-radius: 24px; padding: 5rem 3rem; max-width: 720px; margin: 0 auto; }
+.bf-cta-title { font-size: clamp(1.5rem, 4vw, 2.2rem) !important; font-weight: 900 !important; margin-bottom: 1rem !important; color: #1e1b2e !important; }
+.bf-cta-box p { color: #6b7280; margin-bottom: 2rem; }
+
+/* ─── レスポンシブ ─── */
+@media (max-width: 768px) {
+  .bf-ach-box { grid-template-columns: 1fr; gap: 2rem; }
+  .bf-stats { gap: 2rem; }
+}
+</style>
+
+<!-- ヒーロー -->
+<div class="bf-hero">
+  <div class="bf-hero-inner">
+    <p class="bf-eyebrow-sm">IT × Drone × Consulting — Fukushima</p>
+    <h1 class="bf-h1">
+      テクノロジーで、<br>
+      地域の未来を<span>切り拓く。</span>
+    </h1>
+    <p class="bf-hero-sub">
+      IT・動画制作、産業用ドローン、経営コンサルティング。<br>
+      福島から、あなたのビジネスの可能性を広げます。
+    </p>
+    <div class="bf-btns">
+      <a href="/services/" class="bf-btn-primary">サービスを見る</a>
+      <a href="/contact/" class="bf-btn-outline">お問い合わせ</a>
+    </div>
+    <div class="bf-stats">
+      <div class="bf-stat">
+        <div class="bf-stat-num">293<span style="font-size:1.2rem;">ha</span></div>
+        <div class="bf-stat-label">2025年 ドローン散布実績</div>
+      </div>
+      <div class="bf-stat">
+        <div class="bf-stat-num">1991</div>
+        <div class="bf-stat-label">創業年</div>
+      </div>
+      <div class="bf-stat">
+        <div class="bf-stat-num">3<span style="font-size:1.2rem;">部門</span></div>
+        <div class="bf-stat-label">専門サービス</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- サービス -->
+<div class="bf-section bf-services">
+  <div class="bf-section-inner">
+    <p class="bf-eyebrow">Our Services</p>
+    <div class="bf-section-title">私たちが提供する<br><span>3つのサービス</span></div>
+    <p class="bf-section-desc">IT・ドローン・経営コンサルの専門知識を組み合わせ、地域のビジネスを多角的にサポートします。</p>
+    <div class="bf-service-grid">
+      <div class="bf-service-card">
+        <div class="bf-service-icon">IT</div>
+        <div class="bf-service-name">IT・動画制作</div>
+        <p>ホームページ制作・コンテンツ制作・動画プロモーションなど、デジタル発信を全面サポート。</p>
+        <span class="bf-service-tag">主力事業</span><br>
+        <a href="/services/#it" class="bf-service-more">詳しく見る →</a>
+      </div>
+      <div class="bf-service-card">
+        <div class="bf-service-icon">DR</div>
+        <div class="bf-service-name">産業用ドローン</div>
+        <p>農薬・肥料・種の空中散布から空撮まで。DJI Agras T10を使用した精密農業で農作業を効率化。</p>
+        <span class="bf-service-tag">拡大中</span><br>
+        <a href="/services/#drone" class="bf-service-more">詳しく見る →</a>
+      </div>
+      <div class="bf-service-card">
+        <div class="bf-service-icon">CO</div>
+        <div class="bf-service-name">経営コンサルティング</div>
+        <p>補助金申請・融資サポートを軸とした経営コンサルティング。IT・ドローン導入支援も強み。</p>
+        <span class="bf-service-tag">主力事業</span><br>
+        <a href="/services/#consulting" class="bf-service-more">詳しく見る →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 実績 -->
+<div class="bf-section bf-achievement">
+  <div class="bf-section-inner">
+    <p class="bf-eyebrow">Achievement</p>
+    <div class="bf-section-title">実績・<span>認定</span></div>
+    <div class="bf-ach-box">
+      <div>
+        <div class="bf-ach-title">福島県知事より<br>経営革新計画の承認取得</div>
+        <p>弊社開発のアプリが2025年6月、福島県知事より経営革新計画の承認を受けました。地域農業・産業のDX推進に取り組んでいます。</p>
+        <span class="bf-badge">✓ 経営革新計画 承認事業者</span>
+      </div>
+      <div class="bf-nums">
+        <div class="bf-num-box">
+          <div class="bf-num">293<span style="font-size:1rem;">ha</span></div>
+          <div class="bf-num-label">2025年 散布実績</div>
+        </div>
+        <div class="bf-num-box">
+          <div class="bf-num">30<span style="font-size:1rem;">+</span></div>
+          <div class="bf-num-label">年の事業経験</div>
+        </div>
+        <div class="bf-num-box">
+          <div class="bf-num">2</div>
+          <div class="bf-num-label">保有ドローン機体</div>
+        </div>
+        <div class="bf-num-box">
+          <div class="bf-num">3</div>
+          <div class="bf-num-label">事業領域</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="bf-section bf-cta-section">
+  <div class="bf-section-inner">
+    <div class="bf-cta-box">
+      <div class="bf-cta-title">お気軽にご相談ください</div>
+      <p>IT活用・ドローン導入・補助金申請など、まずはお問い合わせから。</p>
+      <div class="bf-btns">
+        <a href="/contact/" class="bf-btn-primary">お問い合わせフォームへ</a>
+        <a href="https://lin.ee/hYCbYcy" class="bf-btn-outline" target="_blank">LINEで相談する</a>
+      </div>
+    </div>
+  </div>
+</div>

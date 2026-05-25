@@ -1,0 +1,139 @@
+<style>
+/* SWELLのh1〜h4スタイルをリセット */
+.bf-section h1,
+.bf-section h2,
+.bf-section h3,
+.bf-section h4 {
+  background: transparent !important;
+  background-image: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-left: none !important;
+  border-bottom: none !important;
+  padding: 0 !important;
+  margin-top: 0 !important;
+  color: inherit !important;
+  display: block !important;
+}
+
+.bf-section { padding: 4rem calc(50vw - 50% + 1.5rem); margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); }
+.bf-section-inner { max-width: 1000px; margin: 0 auto; }
+.bf-eyebrow { font-size: 0.78rem; letter-spacing: 0.25em; text-transform: uppercase; color: #a855f7; margin-bottom: 0.6rem; }
+.bf-title { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 900; line-height: 1.25; margin-bottom: 1rem; }
+.bf-title span { background: linear-gradient(135deg, #7c3aed, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.bf-lead { color: #6b7280; font-size: 1rem; max-width: 640px; margin-bottom: 3rem; line-height: 1.8; }
+
+/* メッセージ */
+.bf-message { background: linear-gradient(135deg, #f3f0fa, #ede9f8); border-radius: 20px; padding: 3rem; margin-bottom: 3rem; }
+.bf-message-label { font-size: 0.78rem; letter-spacing: 0.15em; color: #7c3aed; margin-bottom: 1rem; }
+.bf-message p { color: #374151; font-size: 1rem; line-height: 2; margin-bottom: 1rem; }
+.bf-message-sign { margin-top: 1.5rem; font-size: 0.9rem; color: #6b7280; }
+.bf-message-sign strong { color: #1e1b2e; font-size: 1.05rem; }
+
+/* 会社概要テーブル */
+.bf-table-wrap { background: #fff; border: 1px solid rgba(109,40,217,0.12); border-radius: 16px; overflow: hidden; margin-bottom: 3rem; }
+.bf-table { width: 100%; border-collapse: collapse; }
+.bf-table th, .bf-table td { padding: 1rem 1.5rem; font-size: 0.92rem; text-align: left; border-bottom: 1px solid rgba(109,40,217,0.08); }
+.bf-table th { background: rgba(124,58,237,0.04); color: #6b7280; font-weight: 500; width: 160px; white-space: nowrap; }
+.bf-table td { color: #1e1b2e; }
+.bf-table tr:last-child th, .bf-table tr:last-child td { border-bottom: none; }
+
+/* 事業領域 */
+.bf-biz-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; margin-bottom: 3rem; }
+.bf-biz-card { background: #fff; border: 1px solid rgba(109,40,217,0.12); border-radius: 14px; padding: 1.5rem; }
+.bf-biz-icon { font-size: 1.8rem; margin-bottom: 0.6rem; }
+.bf-biz-name { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+.bf-biz-desc { font-size: 0.82rem; color: #6b7280; line-height: 1.7; }
+
+/* バッジ */
+.bf-badge-row { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 3rem; }
+.bf-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(124,58,237,0.08); border: 1px solid rgba(124,58,237,0.25); color: #7c3aed; font-size: 0.82rem; font-weight: 700; padding: 0.5rem 1.2rem; border-radius: 999px; }
+
+/* CTA */
+.bf-cta { background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(168,85,247,0.05)); border: 1px solid rgba(124,58,237,0.2); border-radius: 20px; padding: 3rem; text-align: center; }
+.bf-cta h2 { font-size: 1.5rem; font-weight: 900; margin-bottom: 0.8rem; }
+.bf-cta p { color: #6b7280; margin-bottom: 1.5rem; }
+.bf-btn { display: inline-block; background: linear-gradient(135deg, #7c3aed, #a855f7); color: #fff !important; padding: 0.85rem 2.4rem; border-radius: 999px; font-weight: 700; font-size: 1rem; text-decoration: none !important; }
+
+@media (max-width: 640px) {
+  .bf-table th { width: 100px; }
+  .bf-message { padding: 2rem; }
+}
+</style>
+
+<div class="bf-section">
+  <div class="bf-section-inner">
+    <p class="bf-eyebrow">About Us</p>
+    <div class="bf-title">会社<span>概要</span></div>
+
+    <!-- 代表メッセージ -->
+    <div class="bf-message">
+      <p class="bf-message-label">代表メッセージ</p>
+      <p>
+        「ドローンで新たな挑戦をしよう」——そんな想いから始まったのが、
+        弊社の産業用ドローン事業です。
+      </p>
+      <p>
+        1991年に縫製加工業として創業した弊社は、時代の変化に合わせてIT・動画制作、
+        産業用ドローン農薬散布、経営コンサルティングへと事業を進化させてきました。
+      </p>
+      <p>
+        福島県須賀川市を拠点に、地域の農家・中小企業の皆様が抱える課題に、
+        テクノロジーと経営の両面からアプローチしてまいります。
+        どうぞお気軽にご相談ください。
+      </p>
+      <div class="bf-message-sign">
+        代表取締役　<strong>深谷 学</strong>
+      </div>
+    </div>
+
+    <!-- 認定・登録バッジ -->
+    <div class="bf-badge-row">
+      <span class="bf-badge">✓ 経営革新計画 福島県知事承認（2025年6月）</span>
+      <span class="bf-badge">✓ 福島県ドローンプラットフォーム 登録事業者</span>
+    </div>
+
+    <!-- 会社概要テーブル -->
+    <div style="font-size:1.3rem; font-weight:900; margin-bottom:1.2rem;">会社概要</div>
+    <div class="bf-table-wrap">
+      <table class="bf-table">
+        <tbody>
+          <tr><th>会社名</th><td>ビックフライ有限会社</td></tr>
+          <tr><th>代表取締役</th><td>深谷 学</td></tr>
+          <tr><th>設立</th><td>1991年12月27日</td></tr>
+          <tr><th>資本金</th><td>300万円</td></tr>
+          <tr><th>所在地</th><td>〒962-0000　福島県須賀川市保土原字中屋敷5-3</td></tr>
+          <tr><th>従業員数</th><td>2名</td></tr>
+          <tr><th>事業内容</th><td>IT・動画制作 / 産業用ドローン農薬散布 / 経営コンサルティング</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 事業領域 -->
+    <div style="font-size:1.3rem; font-weight:900; margin-bottom:1.2rem;">事業領域</div>
+    <div class="bf-biz-grid">
+      <div class="bf-biz-card">
+        <div class="bf-biz-icon">💻</div>
+        <div class="bf-biz-name">IT・動画制作</div>
+        <div class="bf-biz-desc">ホームページ制作・動画プロモーション・コンテンツ制作</div>
+      </div>
+      <div class="bf-biz-card">
+        <div class="bf-biz-icon">🚁</div>
+        <div class="bf-biz-name">産業用ドローン</div>
+        <div class="bf-biz-desc">農薬・肥料・種の空中散布。DJI Agras T10使用</div>
+      </div>
+      <div class="bf-biz-card">
+        <div class="bf-biz-icon">📊</div>
+        <div class="bf-biz-name">経営コンサルティング</div>
+        <div class="bf-biz-desc">補助金申請・融資サポート・経営革新計画策定</div>
+      </div>
+    </div>
+
+    <div class="bf-cta">
+      <div class="bf-sub-title">お気軽にご相談ください</div>
+      <p>IT活用・ドローン導入・補助金申請など、何でもお聞きください。</p>
+      <a href="/contact/" class="bf-btn">お問い合わせはこちら</a>
+    </div>
+
+  </div>
+</div>

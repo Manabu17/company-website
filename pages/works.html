@@ -1,0 +1,122 @@
+<style>
+/* SWELLのh1〜h4スタイルをリセット */
+.bf-section h1,
+.bf-section h2,
+.bf-section h3,
+.bf-section h4 {
+  background: transparent !important;
+  background-image: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-left: none !important;
+  border-bottom: none !important;
+  padding: 0 !important;
+  margin-top: 0 !important;
+  color: inherit !important;
+  display: block !important;
+}
+
+.bf-section { padding: 4rem calc(50vw - 50% + 1.5rem); margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); }
+.bf-section-inner { max-width: 1000px; margin: 0 auto; }
+.bf-eyebrow { font-size: 0.78rem; letter-spacing: 0.25em; text-transform: uppercase; color: #a855f7; margin-bottom: 0.6rem; }
+.bf-title { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 900; line-height: 1.25; margin-bottom: 1rem; }
+.bf-title span { background: linear-gradient(135deg, #7c3aed, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.bf-lead { color: #6b7280; font-size: 1rem; max-width: 640px; margin-bottom: 3rem; line-height: 1.8; }
+
+/* 実績グリッド */
+.bf-works-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+.bf-work-card { background: #fff; border: 1px solid rgba(109,40,217,0.12); border-radius: 16px; overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; }
+.bf-work-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(124,58,237,0.1); }
+.bf-work-img { width: 100%; height: 200px; background: linear-gradient(135deg, #f3f0fa, #ede9f8); display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+.bf-work-body { padding: 1.5rem; }
+.bf-work-cat { font-size: 0.72rem; color: #7c3aed; border: 1px solid rgba(124,58,237,0.3); padding: 0.2rem 0.8rem; border-radius: 999px; display: inline-block; margin-bottom: 0.6rem; }
+.bf-work-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+.bf-work-desc { color: #6b7280; font-size: 0.88rem; line-height: 1.7; margin-bottom: 1rem; }
+.bf-work-link { font-size: 0.85rem; color: #7c3aed; text-decoration: none; font-weight: 700; }
+.bf-work-link:hover { text-decoration: underline; }
+
+/* 実績数字 */
+.bf-achievement { background: linear-gradient(135deg, #ede9f8, #f3f0fa); border-radius: 20px; padding: 3rem; margin: 4rem 0; }
+.bf-achievement h2 { font-size: 1.4rem; font-weight: 900; margin-bottom: 2rem; text-align: center; }
+.bf-nums { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.5rem; }
+.bf-num-box { background: #fff; border: 1px solid rgba(109,40,217,0.12); border-radius: 14px; padding: 1.5rem; text-align: center; }
+.bf-num { font-size: 2.4rem; font-weight: 900; background: linear-gradient(135deg, #7c3aed, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-family: 'Inter', sans-serif; }
+.bf-num-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.3rem; }
+
+/* CTA */
+.bf-cta { background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(168,85,247,0.05)); border: 1px solid rgba(124,58,237,0.2); border-radius: 20px; padding: 3rem; text-align: center; }
+.bf-cta h2 { font-size: 1.5rem; font-weight: 900; margin-bottom: 0.8rem; }
+.bf-cta p { color: #6b7280; margin-bottom: 1.5rem; }
+.bf-btn { display: inline-block; background: linear-gradient(135deg, #7c3aed, #a855f7); color: #fff !important; padding: 0.85rem 2.4rem; border-radius: 999px; font-weight: 700; font-size: 1rem; text-decoration: none !important; }
+</style>
+
+<div class="bf-section">
+  <div class="bf-section-inner">
+    <p class="bf-eyebrow">Works</p>
+    <div class="bf-title">制作<span>実績</span></div>
+    <p class="bf-lead">これまでに手がけたホームページ制作・IT支援・ドローン散布の実績をご紹介します。</p>
+
+    <!-- 制作実績カード（事例を追加していく） -->
+    <div class="bf-works-grid">
+
+      <div class="bf-work-card">
+        <div class="bf-work-img">🌐</div>
+        <div class="bf-work-body">
+          <span class="bf-work-cat">ホームページ制作</span>
+          <div class="bf-work-title">〇〇業・コーポレートサイト制作</div>
+          <p class="bf-work-desc">福島県内の〇〇企業様のコーポレートサイトを制作。スマートフォン対応・お問い合わせフォーム設置。</p>
+          <!-- <a href="https://example.com" class="bf-work-link" target="_blank">サイトを見る →</a> -->
+        </div>
+      </div>
+
+      <div class="bf-work-card">
+        <div class="bf-work-img">🎬</div>
+        <div class="bf-work-body">
+          <span class="bf-work-cat">動画制作</span>
+          <div class="bf-work-title">〇〇会社・プロモーション動画</div>
+          <p class="bf-work-desc">事業紹介・採用向けのプロモーション動画を制作。SNS用の短尺版も同時制作。</p>
+        </div>
+      </div>
+
+      <div class="bf-work-card">
+        <div class="bf-work-img">🚁</div>
+        <div class="bf-work-body">
+          <span class="bf-work-cat">ドローン散布</span>
+          <div class="bf-work-title">水稲・大豆への農薬空中散布</div>
+          <p class="bf-work-desc">福島県須賀川市周辺の農地にて農薬・除草剤の空中散布を実施。2025年度実績：293ha。</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 実績数字 -->
+    <div class="bf-achievement">
+      <div class="bf-sub-title">📊 数字で見る実績</div>
+      <div class="bf-nums">
+        <div class="bf-num-box">
+          <div class="bf-num">293<span style="font-size:1.2rem;">ha</span></div>
+          <div class="bf-num-label">2025年 ドローン散布面積</div>
+        </div>
+        <div class="bf-num-box">
+          <div class="bf-num">30<span style="font-size:1.2rem;">+</span></div>
+          <div class="bf-num-label">年の事業経験</div>
+        </div>
+        <div class="bf-num-box">
+          <div class="bf-num">1991</div>
+          <div class="bf-num-label">創業年</div>
+        </div>
+        <div class="bf-num-box">
+          <div class="bf-num">✓</div>
+          <div class="bf-num-label">経営革新計画 福島県知事承認</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bf-cta">
+      <div class="bf-sub-title">制作・散布のご依頼はお気軽に</div>
+      <p>ホームページ制作・ドローン散布・補助金申請など、まずはご相談ください。</p>
+      <a href="/contact/" class="bf-btn">お問い合わせはこちら</a>
+    </div>
+
+  </div>
+</div>

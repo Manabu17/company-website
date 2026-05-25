@@ -1,0 +1,89 @@
+<style>
+/* SWELLのh1〜h4スタイルをリセット */
+.bf-section h1,
+.bf-section h2,
+.bf-section h3,
+.bf-section h4 {
+  background: transparent !important;
+  background-image: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-left: none !important;
+  border-bottom: none !important;
+  padding: 0 !important;
+  margin-top: 0 !important;
+  color: inherit !important;
+  display: block !important;
+}
+
+.bf-section { padding: 4rem calc(50vw - 50% + 1.5rem); margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); }
+.bf-section-inner { max-width: 800px; margin: 0 auto; }
+.bf-eyebrow { font-size: 0.78rem; letter-spacing: 0.25em; text-transform: uppercase; color: #a855f7; margin-bottom: 0.6rem; }
+.bf-title { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 900; line-height: 1.25; margin-bottom: 1rem; }
+.bf-title span { background: linear-gradient(135deg, #7c3aed, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.bf-lead { color: #6b7280; font-size: 1rem; max-width: 640px; margin-bottom: 3rem; line-height: 1.8; }
+
+/* フォームエリア */
+.bf-form-wrap { background: #fff; border: 1px solid rgba(109,40,217,0.12); border-radius: 20px; padding: 2.5rem; margin-bottom: 2rem; }
+.bf-form-wrap h2 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.4rem; }
+.bf-form-wrap p { color: #6b7280; font-size: 0.9rem; margin-bottom: 1.5rem; }
+.bf-form-iframe { width: 100%; border: none; min-height: 600px; }
+
+/* LINE */
+.bf-line-wrap { background: #f0fdf4; border: 1px solid #86efac; border-radius: 20px; padding: 2rem 2.5rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.bf-line-icon { font-size: 3rem; flex-shrink: 0; }
+.bf-line-text h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem; color: #166534; }
+.bf-line-text p { color: #16a34a; font-size: 0.88rem; margin-bottom: 1rem; }
+.bf-line-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: #06c755; color: #fff !important; padding: 0.7rem 1.8rem; border-radius: 999px; font-weight: 700; font-size: 0.95rem; text-decoration: none !important; }
+.bf-line-btn:hover { background: #05b44c; }
+
+/* 電話・メール */
+.bf-contact-info { background: rgba(124,58,237,0.04); border: 1px solid rgba(124,58,237,0.12); border-radius: 16px; padding: 2rem 2.5rem; }
+.bf-contact-info h2 { font-size: 1rem; font-weight: 700; margin-bottom: 1rem; color: #374151; }
+.bf-contact-row { display: flex; align-items: center; gap: 1rem; padding: 0.7rem 0; border-bottom: 1px solid rgba(109,40,217,0.08); font-size: 0.92rem; color: #374151; }
+.bf-contact-row:last-child { border-bottom: none; }
+.bf-contact-row a { color: #7c3aed; }
+</style>
+
+<div class="bf-section">
+  <div class="bf-section-inner">
+    <p class="bf-eyebrow">Contact</p>
+    <div class="bf-title">お<span>問い合わせ</span></div>
+    <p class="bf-lead">ホームページ制作・ドローン散布・補助金申請など、どんなことでもお気軽にご相談ください。通常2営業日以内にご返信いたします。</p>
+
+    <!-- Googleフォーム埋め込み -->
+    <div class="bf-form-wrap">
+      <div class="bf-sub-title">📝 お問い合わせフォーム</div>
+      <p>以下のフォームに必要事項をご入力のうえ、送信してください。</p>
+      <!-- ↓ Googleフォームのiframeをここに貼る -->
+      <iframe
+        class="bf-form-iframe"
+        src="YOUR_GOOGLE_FORM_EMBED_URL"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0">
+        読み込んでいます…
+      </iframe>
+    </div>
+
+    <!-- LINE -->
+    <div class="bf-line-wrap">
+      <div class="bf-line-icon">💬</div>
+      <div class="bf-line-text">
+        <div class="bf-sub-title">LINEでも気軽にご相談できます</div>
+        <p>軽いご質問・ご相談はLINE公式アカウントへどうぞ。<br>お気軽にメッセージをお送りください。</p>
+        <a href="https://lin.ee/hYCbYcy" class="bf-line-btn" target="_blank">
+          LINE で相談する
+        </a>
+      </div>
+    </div>
+
+    <!-- 連絡先情報 -->
+    <div class="bf-contact-info">
+      <div class="bf-sub-title">その他のお問い合わせ先</div>
+      <div class="bf-contact-row">📍 福島県須賀川市保土原字中屋敷5-3</div>
+      <div class="bf-contact-row">📧 <a href="mailto:fukaya.m38@gmail.com">fukaya.m38@gmail.com</a></div>
+    </div>
+
+  </div>
+</div>
