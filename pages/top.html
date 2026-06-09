@@ -36,10 +36,71 @@
 }
 
 /* ─── ヒーロー ─── */
-.bf-hero { padding: 6rem calc(50vw - 50% + 1.5rem) 5rem; text-align: center; position: relative; overflow: hidden; background: #fafafa; }
-.bf-hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(124,58,237,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(124,58,237,0.07) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
-.bf-hero::after { content: ''; position: absolute; top: 20%; left: 50%; transform: translateX(-50%); width: 800px; height: 400px; background: radial-gradient(ellipse at center, rgba(168,85,247,0.15) 0%, transparent 70%); pointer-events: none; }
-.bf-hero-inner { max-width: 800px; margin: 0 auto !important; position: relative; z-index: 1; text-align: center !important; }
+.bf-hero { padding: 6rem calc(50vw - 50% + 1.5rem) 5rem; text-align: center; position: relative; overflow: hidden; background: #f8f4ff; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+.bf-hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(124,58,237,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(124,58,237,0.05) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
+.bf-hero::after { content: ''; position: absolute; top: 20%; left: 50%; transform: translateX(-50%); width: 800px; height: 400px; background: radial-gradient(ellipse at center, rgba(168,85,247,0.12) 0%, transparent 70%); pointer-events: none; }
+.bf-hero-inner { max-width: 800px; margin: 0 auto !important; position: relative; z-index: 10; text-align: center !important; }
+
+/* ─── ヒーロー 背景blob ─── */
+.bf-blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.18; pointer-events: none; }
+.bf-blob-1 { width: 500px; height: 500px; background: #7c3aed; top: -120px; right: -150px; }
+.bf-blob-2 { width: 360px; height: 360px; background: #00D4FF; bottom: -80px; left: -100px; }
+.bf-blob-3 { width: 280px; height: 280px; background: #FF4D8D; top: 38%; left: 42%; }
+
+/* ─── 浮遊カード ─── */
+.bf-cards-scene { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
+.bf-fcard {
+  position: absolute; border-radius: 18px; border: 3px solid;
+  background: white; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center;
+  box-shadow: 5px 5px 0 rgba(0,0,0,0.09);
+  font-family: 'Noto Sans JP', sans-serif; font-weight: 900;
+  padding: 14px 10px; gap: 5px; will-change: transform;
+}
+.bf-fcard-icon { font-size: 2rem; line-height: 1; }
+.bf-fcard-name { font-size: 0.78rem; font-weight: 900; line-height: 1.35; color: #1e1b2e; }
+.bf-fcard-sub  { font-size: 0.6rem; font-weight: 700; opacity: 0.5; color: #1e1b2e; }
+.bf-fc1  { width:140px;height:124px; border-color:#7c3aed; background:#f5f0ff; top: 9%; left: 2%; }
+.bf-fc2  { width:166px;height:145px; border-color:#00D4FF; background:#e0faff; top: 5%; left:19%; }
+.bf-fc3  { width:150px;height:134px; border-color:#FF4D8D; background:#fff0f6; top: 7%; right:20%; }
+.bf-fc4  { width:138px;height:122px; border-color:#FFD600; background:#fffde0; top: 8%; right: 2%; }
+.bf-fc5  { width:156px;height:138px; border-color:#00E5A0; background:#e0fff5; top:42%; left: 1%; }
+.bf-fc6  { width:152px;height:132px; border-color:#a855f7; background:#f5f0ff; top:40%; right:1%; }
+.bf-fc7  { width:164px;height:142px; border-color:#FF4D8D; background:#fff0f6; bottom:10%; left:4%; }
+.bf-fc8  { width:144px;height:126px; border-color:#00D4FF; background:#e0faff; bottom: 8%; right:4%; }
+.bf-fc9  { width:136px;height:118px; border-color:#FFD600; background:#fffde0; bottom:16%; left:26%; }
+.bf-fc10 { width:144px;height:126px; border-color:#00E5A0; background:#e0fff5; bottom:14%; right:23%; }
+@media (max-width: 768px) {
+  .bf-fc1,.bf-fc2,.bf-fc3,.bf-fc4,.bf-fc5,.bf-fc6,.bf-fc7,.bf-fc8,.bf-fc9,.bf-fc10 { display: none; }
+}
+
+/* ─── マーキー ─── */
+.bf-marquee-wrap {
+  margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);
+  background: #7c3aed; padding: 13px 0; overflow: hidden; white-space: nowrap;
+  border-top: 3px solid #1e1b2e; border-bottom: 3px solid #1e1b2e;
+}
+.bf-marquee-track { display: inline-flex; animation: bf-marquee 20s linear infinite; }
+.bf-marquee-item {
+  display: inline-flex; align-items: center; gap: 14px;
+  font-size: 0.95rem; font-weight: 900; letter-spacing: 0.05em;
+  color: white; padding: 0 32px; font-family: 'Noto Sans JP', sans-serif;
+}
+.bf-marquee-item::after { content: '✦'; color: #FFD600; }
+@keyframes bf-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (max-width: 768px) {
+  .bf-marquee-wrap { margin-left: 0 !important; margin-right: 0 !important; }
+}
+
+/* ─── スクロールイン（SWELL互換：常に表示）─── */
+.bf-fadein { opacity: 1; transform: translateY(0); }
+
+/* ─── ヒーロー入場 ─── */
+.bf-hero-inner { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.bf-hero-inner.bf-show { opacity: 1; transform: translateY(0); }
 .bf-eyebrow-sm { font-size: 0.78rem; letter-spacing: 0.25em; text-transform: uppercase; color: #a855f7; margin-bottom: 1.5rem; text-align: center !important; }
 .bf-h1 { font-size: clamp(2.2rem, 6vw, 4.5rem) !important; font-weight: 900 !important; line-height: 1.2 !important; letter-spacing: -0.02em; margin-bottom: 1.5rem !important; color: #1e1b2e !important; text-align: center !important; }
 .bf-h1 span { background: linear-gradient(135deg, #7c3aed, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
@@ -63,15 +124,34 @@
 .bf-section-desc { color: #6b7280; max-width: 600px; margin-bottom: 3rem; font-size: 1rem; line-height: 1.8; }
 
 /* ─── サービス ─── */
-.bf-services { background: #f3f0fa; }
+.bf-services { background: #1a1a2e; position: relative; }
+.bf-services::before {
+  content: '';
+  position: absolute;
+  top: -56px; left: 50%;
+  transform: translateX(-50%);
+  width: 0; height: 0;
+  border-left: 56px solid transparent;
+  border-right: 56px solid transparent;
+  border-top: 56px solid #f3f0fa;
+}
+.bf-services .bf-eyebrow { color: #a855f7 !important; }
+.bf-services .bf-section-title { color: #fff !important; }
+.bf-services .bf-section-title span { background: linear-gradient(135deg, #FFD600, #FFD600); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.bf-services .bf-section-desc { color: rgba(255,255,255,0.6) !important; }
 .bf-service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-.bf-service-card { background: #fff; border: 1px solid rgba(109,40,217,0.12); border-radius: 16px; padding: 2rem; position: relative; overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; }
-.bf-service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(124,58,237,0.1); }
+.bf-service-card { background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.10); border-radius: 16px; padding: 2rem; position: relative; overflow: hidden; transition: transform 0.3s, background 0.3s, border-color 0.3s; }
+.bf-service-card:hover { transform: translateY(-6px); background: rgba(124,58,237,0.2); border-color: #a855f7; }
 .bf-service-icon { width: 52px; height: 52px; background: linear-gradient(135deg, #7c3aed, #a855f7); border-radius: 12px; display: flex !important; align-items: center !important; justify-content: center !important; margin-bottom: 1.2rem; color: #fff; font-weight: 900; font-size: 0.8rem; letter-spacing: 0.05em; }
-.bf-service-name { font-size: 1.15rem !important; font-weight: 700 !important; margin-bottom: 0.6rem !important; color: #1e1b2e !important; }
-.bf-service-card p { font-size: 0.9rem; color: #6b7280; line-height: 1.7; margin-bottom: 1rem; }
-.bf-service-tag { font-size: 0.72rem; color: #7c3aed; border: 1px solid rgba(124,58,237,0.3); padding: 0.2rem 0.7rem; border-radius: 999px; display: inline-block; }
-.bf-service-more { display: inline-block; margin-top: 0.8rem; font-size: 0.85rem; color: #7c3aed !important; text-decoration: none !important; font-weight: 700; }
+.bf-service-name { font-size: 1.15rem !important; font-weight: 700 !important; margin-bottom: 0.6rem !important; color: #fff !important; }
+.bf-service-card p { font-size: 0.9rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 1rem; }
+.bf-service-tag { font-size: 0.72rem; color: #a855f7; border: 1px solid rgba(168,85,247,0.4); padding: 0.2rem 0.7rem; border-radius: 999px; display: inline-block; }
+.bf-service-more { display: inline-block; margin-top: 0.8rem; font-size: 0.85rem; color: #a855f7 !important; text-decoration: none !important; font-weight: 700; }
+
+/* ─── 実績数字セクション ─── */
+.bf-stats-section { background: #fafafa; text-align: center; }
+.bf-stats-section .bf-stats { display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; margin-top: 2rem; }
+.bf-stats-section .bf-stat { background: #fff; border: 2px solid rgba(109,40,217,0.15); border-radius: 20px; padding: 2rem 2.5rem; box-shadow: 4px 4px 0 #e9d5ff; }
 
 /* ─── 実績 ─── */
 .bf-achievement { background: linear-gradient(135deg, #ede9f8, #f3f0fa); }
@@ -79,7 +159,7 @@
 .bf-ach-title { font-size: 1.5rem !important; font-weight: 900 !important; margin-bottom: 0.8rem !important; line-height: 1.4 !important; color: #1e1b2e !important; }
 .bf-ach-box p { color: #6b7280; font-size: 0.95rem; margin-bottom: 1.2rem; line-height: 1.8; }
 .bf-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(124,58,237,0.08); border: 1px solid rgba(124,58,237,0.25); color: #7c3aed; font-size: 0.82rem; font-weight: 700; padding: 0.4rem 1rem; border-radius: 999px; }
-.bf-nums { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.bf-nums { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
 .bf-num-box { background: #fff; border: 1px solid rgba(109,40,217,0.12); border-radius: 14px; padding: 1.5rem; text-align: center; }
 .bf-num { font-size: 2.2rem; font-weight: 900; background: linear-gradient(135deg, #7c3aed, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-family: 'Inter', sans-serif; }
 .bf-num-label { font-size: 0.75rem; color: #6b7280; margin-top: 0.3rem; }
@@ -92,35 +172,133 @@
 
 /* ─── レスポンシブ ─── */
 @media (max-width: 768px) {
-  /* フル幅ブレイクアウトをモバイルで無効化 */
-  .bf-hero,
-  .bf-section {
+  /* フル幅ブレイクアウト無効化 */
+  .bf-hero, .bf-section, .bf-marquee-wrap {
     margin-left: 0 !important;
     margin-right: 0 !important;
-    padding-left: 1.25rem !important;
-    padding-right: 1.25rem !important;
   }
-  .bf-hero { padding-top: 3rem !important; padding-bottom: 3rem !important; }
-  .bf-section { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+  .bf-hero {
+    padding: 4rem 1.25rem 3rem !important;
+    min-height: auto !important;
+  }
+  .bf-section {
+    padding: 3rem 1.25rem !important;
+  }
 
-  /* 実績ボックスを縦積みに */
+  /* ヒーロー文字 */
+  .bf-h1 { font-size: 2rem !important; }
+  .bf-hero-sub { font-size: 0.9rem !important; }
+  .bf-btns { flex-direction: column !important; align-items: center !important; }
+  .bf-btn-primary, .bf-btn-outline { width: 100% !important; justify-content: center !important; text-align: center !important; }
+
+  /* 実績数字：横並び → 縦3段 */
+  .bf-stats-section .bf-stats {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1rem !important;
+  }
+  .bf-stats-section .bf-stat {
+    width: 100% !important;
+    max-width: 320px !important;
+    padding: 1.2rem 1.5rem !important;
+    margin: 0 !important;
+  }
+  .bf-stat-num { font-size: 1.8rem !important; }
+
+  /* サービス：三角区切りを非表示 */
+  .bf-services::before { display: none !important; }
+
+  /* サービスカード：1列 */
+  .bf-service-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  .bf-service-card { padding: 1.5rem !important; }
+
+  /* 認定ボックス：縦積み */
   .bf-ach-box {
     grid-template-columns: 1fr !important;
-    gap: 2rem !important;
+    gap: 1.5rem !important;
     padding: 1.5rem !important;
   }
+  .bf-ach-title { font-size: 1.2rem !important; }
 
-  /* ヒーロー統計 */
-  .bf-stats { gap: 2rem; }
-  .bf-stat { margin: 0 1rem 1rem !important; }
+  /* 認定数字：横並び維持（3つなので） */
+  .bf-nums {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.8rem !important;
+  }
+  .bf-num { font-size: 1.6rem !important; }
+  .bf-num-box { padding: 1rem 0.5rem !important; }
 
   /* CTAボックス */
-  .bf-cta-box { padding: 3rem 1.5rem !important; }
+  .bf-cta-box { padding: 2.5rem 1.25rem !important; }
+  .bf-cta-title { font-size: 1.4rem !important; }
 }
 </style>
 
 <!-- ヒーロー -->
 <div class="bf-hero">
+
+  <!-- 背景blob -->
+  <div class="bf-blob bf-blob-1"></div>
+  <div class="bf-blob bf-blob-2"></div>
+  <div class="bf-blob bf-blob-3"></div>
+
+  <!-- 浮遊カード群 -->
+  <div class="bf-cards-scene">
+    <div class="bf-fcard bf-fc1"  data-speed="0.040" data-phase="0.0" data-rot="-8">
+      <div class="bf-fcard-icon">🖥️</div>
+      <div class="bf-fcard-name">HP制作</div>
+      <div class="bf-fcard-sub">Web Design</div>
+    </div>
+    <div class="bf-fcard bf-fc2"  data-speed="0.060" data-phase="1.0" data-rot="4">
+      <div class="bf-fcard-icon">🚁</div>
+      <div class="bf-fcard-name">産業用<br>ドローン</div>
+      <div class="bf-fcard-sub">Agriculture DX</div>
+    </div>
+    <div class="bf-fcard bf-fc3"  data-speed="0.050" data-phase="2.0" data-rot="-5">
+      <div class="bf-fcard-icon">🎬</div>
+      <div class="bf-fcard-name">動画制作</div>
+      <div class="bf-fcard-sub">Video Production</div>
+    </div>
+    <div class="bf-fcard bf-fc4"  data-speed="0.035" data-phase="0.5" data-rot="7">
+      <div class="bf-fcard-icon">📊</div>
+      <div class="bf-fcard-name">経営<br>コンサル</div>
+      <div class="bf-fcard-sub">Consulting</div>
+    </div>
+    <div class="bf-fcard bf-fc5"  data-speed="0.055" data-phase="1.5" data-rot="5">
+      <div class="bf-fcard-icon">🌾</div>
+      <div class="bf-fcard-name">293ha<br>散布実績</div>
+      <div class="bf-fcard-sub">2025年実績</div>
+    </div>
+    <div class="bf-fcard bf-fc6"  data-speed="0.045" data-phase="2.5" data-rot="-6">
+      <div class="bf-fcard-icon">🏆</div>
+      <div class="bf-fcard-name">経営革新<br>計画承認</div>
+      <div class="bf-fcard-sub">福島県知事認定</div>
+    </div>
+    <div class="bf-fcard bf-fc7"  data-speed="0.060" data-phase="0.8" data-rot="-4">
+      <div class="bf-fcard-icon">📱</div>
+      <div class="bf-fcard-name">LINE<br>相談受付</div>
+      <div class="bf-fcard-sub">無料相談</div>
+    </div>
+    <div class="bf-fcard bf-fc8"  data-speed="0.035" data-phase="1.3" data-rot="6">
+      <div class="bf-fcard-icon">🗾</div>
+      <div class="bf-fcard-name">福島県<br>密着</div>
+      <div class="bf-fcard-sub">地域に根ざす</div>
+    </div>
+    <div class="bf-fcard bf-fc9"  data-speed="0.050" data-phase="2.1" data-rot="-3">
+      <div class="bf-fcard-icon">✍️</div>
+      <div class="bf-fcard-name">補助金<br>申請支援</div>
+      <div class="bf-fcard-sub">採択実績あり</div>
+    </div>
+    <div class="bf-fcard bf-fc10" data-speed="0.042" data-phase="0.3" data-rot="5">
+      <div class="bf-fcard-icon">🌐</div>
+      <div class="bf-fcard-name">SNS運用<br>支援</div>
+      <div class="bf-fcard-sub">集客サポート</div>
+    </div>
+  </div>
+
   <div class="bf-hero-inner">
     <p class="bf-eyebrow-sm">IT × Drone × Consulting — Fukushima</p>
     <h1 class="bf-h1">
@@ -135,6 +313,32 @@
       <a href="/services/" class="bf-btn-primary">サービスを見る</a>
       <a href="/contact/" class="bf-btn-outline">お問い合わせ</a>
     </div>
+  </div>
+</div>
+
+<!-- マーキー -->
+<div class="bf-marquee-wrap">
+  <div class="bf-marquee-track">
+    <span class="bf-marquee-item">HP・動画制作</span>
+    <span class="bf-marquee-item">産業用ドローン</span>
+    <span class="bf-marquee-item">経営コンサルティング</span>
+    <span class="bf-marquee-item">補助金申請支援</span>
+    <span class="bf-marquee-item">農業DX推進</span>
+    <span class="bf-marquee-item">地域ビジネス支援</span>
+    <span class="bf-marquee-item">HP・動画制作</span>
+    <span class="bf-marquee-item">産業用ドローン</span>
+    <span class="bf-marquee-item">経営コンサルティング</span>
+    <span class="bf-marquee-item">補助金申請支援</span>
+    <span class="bf-marquee-item">農業DX推進</span>
+    <span class="bf-marquee-item">地域ビジネス支援</span>
+  </div>
+</div>
+
+<!-- 実績数字 -->
+<div class="bf-section bf-stats-section">
+  <div class="bf-section-inner" style="text-align:center;">
+    <p class="bf-eyebrow">ACHIEVEMENT</p>
+    <div class="bf-section-title">私たちの<span>実績</span></div>
     <div class="bf-stats">
       <div class="bf-stat">
         <div class="bf-stat-num">293<span style="font-size:1.2rem;">ha</span></div>
@@ -184,11 +388,11 @@
   </div>
 </div>
 
-<!-- 実績 -->
+<!-- 認定 -->
 <div class="bf-section bf-achievement">
   <div class="bf-section-inner">
     <p class="bf-eyebrow">Achievement</p>
-    <div class="bf-section-title">実績・<span>認定</span></div>
+    <div class="bf-section-title"><span>認定</span></div>
     <div class="bf-ach-box">
       <div>
         <div class="bf-ach-title">福島県知事より<br>経営革新計画の承認取得</div>
@@ -196,10 +400,6 @@
         <span class="bf-badge">✓ 経営革新計画 承認事業者</span>
       </div>
       <div class="bf-nums">
-        <div class="bf-num-box">
-          <div class="bf-num">293<span style="font-size:1rem;">ha</span></div>
-          <div class="bf-num-label">2025年 散布実績</div>
-        </div>
         <div class="bf-num-box">
           <div class="bf-num">30<span style="font-size:1rem;">+</span></div>
           <div class="bf-num-label">年の事業経験</div>
@@ -216,6 +416,51 @@
     </div>
   </div>
 </div>
+
+<!-- アニメーションJS -->
+<script>
+(function () {
+  // ヒーロー入場
+  setTimeout(function () {
+    var inner = document.querySelector('.bf-hero-inner');
+    if (inner) inner.classList.add('bf-show');
+  }, 200);
+
+  // 浮遊カード
+  var cards = Array.from(document.querySelectorAll('.bf-fcard'));
+  var mouseX = 0, mouseY = 0, scrollY = 0, t = 0;
+
+  document.addEventListener('mousemove', function (e) {
+    mouseX = (e.clientX / window.innerWidth  - 0.5) * 2;
+    mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+  });
+  window.addEventListener('scroll', function () { scrollY = window.scrollY; }, { passive: true });
+
+  function tick() {
+    t += 0.008;
+    cards.forEach(function (card, i) {
+      var spd   = parseFloat(card.dataset.speed);
+      var phase = parseFloat(card.dataset.phase);
+      var rot   = parseFloat(card.dataset.rot) || 0;
+      var dir   = i % 2 === 0 ? 1 : -1;
+      var fx = Math.sin(t * 0.8 + phase) * 11;
+      var fy = Math.cos(t * 0.6 + phase) * 13;
+      var mx = mouseX * 18 * dir;
+      var my = mouseY * 12 * dir;
+      var py = -scrollY * spd * (i % 3 === 0 ? 0.28 : -0.22);
+      card.style.transform = 'rotate(' + rot + 'deg) translate(' + (fx + mx) + 'px,' + (fy + my + py) + 'px)';
+    });
+    requestAnimationFrame(tick);
+  }
+  if (cards.length) tick();
+
+  // スクロールイン
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('bf-visible'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.bf-fadein').forEach(function (el) { io.observe(el); });
+})();
+</script>
 
 <!-- CTA -->
 <div class="bf-section bf-cta-section">
